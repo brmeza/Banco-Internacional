@@ -1,5 +1,7 @@
 package org.bmsoft.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -16,6 +18,7 @@ public class CuentaAhorro {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id", nullable = false)
+    @JsonBackReference
     private Cliente cliente;
 
     @Column(name = "saldo", nullable = false, precision = 18, scale = 2)
@@ -25,5 +28,6 @@ public class CuentaAhorro {
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
     @OneToMany(mappedBy = "cuentaAhorro", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Transaccion> transacciones;
 }

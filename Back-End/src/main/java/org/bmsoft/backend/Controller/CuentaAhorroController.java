@@ -66,7 +66,7 @@ public class CuentaAhorroController {
         }
         CuentaAhorro cuenta = optionalCuenta.get();
         // Solo permitir actualizar ciertos campos si es necesario
-        // Por ejemplo, no permitir actualizar el saldo directamente
+        // Por ejemplo, no permitir actualizar el saldo directamente ni la fecha
         CuentaAhorro updatedCuenta = cuentaAhorroService.save(cuenta);
         return ResponseEntity.ok(updatedCuenta);
     }

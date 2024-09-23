@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clientes")
-@CrossOrigin(origins = "http://localhost:4200") // Configura según el puerto de Angular
+@CrossOrigin(origins = "http://localhost:4200") // Configura según el puerto de Angular 4200 es por defecto
 public class ClienteController {
 
     @Autowired

@@ -1,5 +1,7 @@
 package org.bmsoft.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -15,9 +17,10 @@ public class Transaccion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cuenta_id", nullable = false)
+    @JsonBackReference
     private CuentaAhorro cuentaAhorro;
 
-    @Column(name = "tipo_transaccion", nullable = false, length = 10)
+    @Column(name = "tipo_transaccion", nullable = false, length = 20)
     private String tipoTransaccion; // 'Retiro' o 'Consignación'
 
     @Column(name = "monto", nullable = false, precision = 18, scale = 2)

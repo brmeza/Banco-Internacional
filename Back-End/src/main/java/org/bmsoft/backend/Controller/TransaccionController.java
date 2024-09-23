@@ -44,7 +44,7 @@ public class TransaccionController {
                 return ResponseEntity.badRequest().body("Saldo insuficiente para el retiro.");
             }
             cuenta.setSaldo(cuenta.getSaldo().subtract(monto));
-        } else if (tipo.equalsIgnoreCase("Consignación")) {
+        } else if (tipo.equalsIgnoreCase("Consignacion")) {
             cuenta.setSaldo(cuenta.getSaldo().add(monto));
         } else {
             return ResponseEntity.badRequest().body("Tipo de transacción inválido.");
