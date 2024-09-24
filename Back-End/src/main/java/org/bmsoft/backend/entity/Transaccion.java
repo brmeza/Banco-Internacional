@@ -1,7 +1,6 @@
 package org.bmsoft.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -21,7 +20,7 @@ public class Transaccion {
     private CuentaAhorro cuentaAhorro;
 
     @Column(name = "tipo_transaccion", nullable = false, length = 20)
-    private String tipoTransaccion; // 'Retiro' o 'Consignación'
+    private String tipoTransaccion; // 'Retiro' o 'Consignacion'
 
     @Column(name = "monto", nullable = false, precision = 18, scale = 2)
     private BigDecimal monto;
